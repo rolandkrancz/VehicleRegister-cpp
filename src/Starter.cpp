@@ -1,7 +1,7 @@
 #include <iostream>
-#include "VehicleUI.h"
-#include "VehicleBL.h"
-#include "VehiclePersistency.h"
+#include "./UI/VehicleUI.h"
+#include "./BL/VehicleBL.h"
+#include "./Persistence/VehiclePersistency.h"
 
 int main() {
     VehiclePersistency* persistency = new VehiclePersistency();

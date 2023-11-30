@@ -5,6 +5,8 @@
 **/x64
 **/.vs
 **/.git
+./bin
+./obj
 
 # Prerequisites
 *.d

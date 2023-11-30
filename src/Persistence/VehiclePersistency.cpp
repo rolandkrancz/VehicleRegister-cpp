@@ -4,7 +4,7 @@
 #include <vector>
 
 void VehiclePersistency::Save(VehicleEntity vehicle) {
-    std::ofstream file("database.txt", std::ios::app);
+    std::ofstream file("../src/database.txt", std::ios::app);
     if (file.is_open()) {
         file << vehicle.GetRegistrationNumber() << ", "
              << vehicle.GetModel() << ", "
@@ -17,7 +17,7 @@ void VehiclePersistency::Save(VehicleEntity vehicle) {
 
 VehicleEntity VehiclePersistency::Load(std::string registrationNumber) {
 
-    std::ifstream file("database.txt");
+    std::ifstream file("../src/database.txt");
     VehicleEntity vehicle;
 
     if (file.is_open()) {
