@@ -1,3 +1,11 @@
+
+
+**/database.txt
+**/release
+**/x64
+**/.vs
+**/.git
+
 # Prerequisites
 *.d
 
