@@ -3,8 +3,9 @@
 
 #include "VehicleEntity.h"
 #include "IStorage.h"
+#include "IVehicleManager.h"
 
-class VehicleBL {
+class VehicleBL : public IVehicleManager {
 private:
     IStorage* storage;
 

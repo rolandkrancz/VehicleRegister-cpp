@@ -2,14 +2,14 @@
 #define VEHICLE_UI_H
 
 #include <iostream>
-#include "../BL/VehicleBL.h"
+#include "../BL/IVehicleManager.h"
 
 class VehicleUI {
 private:
-    VehicleBL* BL;
+    IVehicleManager* vehicleManager;
 
 public:
-    VehicleUI(VehicleBL* vehicleBL);
+    VehicleUI(IVehicleManager* vehicleManager);
     void DisplayMainMenu();
 
 private:

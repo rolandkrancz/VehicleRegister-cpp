@@ -1,4 +1,4 @@
-CXX = cl
+CXX = g++
 CXXFLAGS = -std=c++11
 
 SRC_DIR = src

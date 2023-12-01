@@ -1,6 +1,6 @@
 #include "VehicleUI.h"
 
-VehicleUI::VehicleUI(VehicleBL* vehicleBL) : BL(vehicleBL) {}
+VehicleUI::VehicleUI(IVehicleManager* vehicleManager) : vehicleManager(vehicleManager) {}
 
 void VehicleUI::DisplayMainMenu() {
     while (true) {
@@ -34,7 +34,7 @@ void VehicleUI::_AddRecord() {
     std::getline(std::cin, address);
 
     VehicleEntity VehicleEntity(reg_number, model, type, name, address);
-    BL->RegisterVehicle(VehicleEntity);
+    vehicleManager->RegisterVehicle(VehicleEntity);
 }
 
 void VehicleUI::_GetVehicleInfo() {
@@ -42,7 +42,7 @@ void VehicleUI::_GetVehicleInfo() {
     std::cout << "Enter registration number: ";
     std::getline(std::cin, registrationNumber);
 
-    VehicleEntity VehicleEntity = BL->GetVehicleInfo(registrationNumber);
+    VehicleEntity VehicleEntity = vehicleManager->GetVehicleInfo(registrationNumber);
 
     if (!VehicleEntity.GetRegistrationNumber().empty()) {
         std::cout << "Registration Number: " << VehicleEntity.GetRegistrationNumber() << std::endl;

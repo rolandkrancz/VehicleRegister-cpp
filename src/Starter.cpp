@@ -5,10 +5,10 @@
 
 int main() {
     VehiclePersistency* persistency = new VehiclePersistency();
-    VehicleBL* vehicleBL = new VehicleBL(persistency);
-    VehicleUI vehicleUI(vehicleBL);
+    VehicleBL* vehicleManager = new VehicleBL(persistency);
+    VehicleUI vehicleUI(vehicleManager);
     vehicleUI.DisplayMainMenu();
 
-    delete vehicleBL;
+    delete vehicleManager;
     return 0;
 }
