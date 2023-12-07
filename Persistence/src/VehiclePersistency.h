@@ -1,8 +1,8 @@
 #ifndef VEHICLE_PERSISTENCY_H
 #define VEHICLE_PERSISTENCY_H
 
-#include "../BL/IStorage.h"
-#include "../BL/VehicleEntity.h"
+#include "IStorage.h"
+#include "VehicleEntity.h"
 
 class VehiclePersistency : public IStorage {
 public:
