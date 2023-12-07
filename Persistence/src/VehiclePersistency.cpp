@@ -3,8 +3,10 @@
 #include <sstream>
 #include <vector>
 
+#define PATH_TO_DB_FILE "../Persistence/database.txt"
+
 void VehiclePersistency::Save(VehicleEntity vehicle) {
-    std::ofstream file("../src/database.txt", std::ios::app);
+    std::ofstream file(PATH_TO_DB_FILE, std::ios::app);
     if (file.is_open()) {
         file << vehicle.GetRegistrationNumber() << ", "
              << vehicle.GetModel() << ", "
@@ -17,7 +19,7 @@ void VehiclePersistency::Save(VehicleEntity vehicle) {
 
 VehicleEntity VehiclePersistency::Load(std::string registrationNumber) {
 
-    std::ifstream file("../src/database.txt");
+    std::ifstream file(PATH_TO_DB_FILE);
     VehicleEntity vehicle;
 
     if (file.is_open()) {

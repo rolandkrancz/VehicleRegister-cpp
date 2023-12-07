@@ -11,16 +11,16 @@ void VehicleUI::DisplayMainMenu() {
         std::getline(std::cin, selection);
 
         if (selection == "1") {
-            _AddRecord();
+            AddRecord();
         } else if (selection == "2") {
-            _GetVehicleInfo();
+            GetVehicleInfo();
         } else if (selection == "3") {
             break;
         }
     }
 }
 
-void VehicleUI::_AddRecord() {
+void VehicleUI::AddRecord() {
     std::string reg_number, model, type, name, address;
     std::cout << "Enter registration number: ";
     std::getline(std::cin, reg_number);
@@ -37,7 +37,7 @@ void VehicleUI::_AddRecord() {
     vehicleManager->RegisterVehicle(VehicleEntity);
 }
 
-void VehicleUI::_GetVehicleInfo() {
+void VehicleUI::GetVehicleInfo() {
     std::string registrationNumber;
     std::cout << "Enter registration number: ";
     std::getline(std::cin, registrationNumber);

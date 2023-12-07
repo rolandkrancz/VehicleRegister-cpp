@@ -13,8 +13,8 @@ public:
     void DisplayMainMenu();
 
 private:
-    void _AddRecord();
-    void _GetVehicleInfo();
+    void AddRecord();
+    void GetVehicleInfo();
 };
 
 #endif // VEHICLE_UI_H
