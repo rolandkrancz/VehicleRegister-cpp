@@ -4,6 +4,8 @@ VehicleUI::VehicleUI(IVehicleManager* vehicleManager) : vehicleManager(vehicleMa
 
 void VehicleUI::DisplayMainMenu() {
     while (true) {
+
+        // TODO: Extract to View
         std::cout << "\n1. Add Vehicle Record" << std::endl;
         std::cout << "2. Get Vehicle Info" << std::endl;
         std::cout << "3. Exit\n" << std::endl;
@@ -22,6 +24,8 @@ void VehicleUI::DisplayMainMenu() {
 
 void VehicleUI::AddRecord() {
     std::string reg_number, model, type, name, address;
+
+    // extract ->View - GetInput
     std::cout << "Enter registration number: ";
     std::getline(std::cin, reg_number);
     std::cout << "Enter model: ";
@@ -33,8 +37,8 @@ void VehicleUI::AddRecord() {
     std::cout << "Enter owner's address: ";
     std::getline(std::cin, address);
 
-    VehicleEntity VehicleEntity(reg_number, model, type, name, address);
-    vehicleManager->RegisterVehicle(VehicleEntity);
+    const json vehicle = SerializeDataForBL(reg_number, model, type, name, address);
+    vehicleManager->RegisterVehicle(vehicle);
 }
 
 void VehicleUI::GetVehicleInfo() {
@@ -42,15 +46,30 @@ void VehicleUI::GetVehicleInfo() {
     std::cout << "Enter registration number: ";
     std::getline(std::cin, registrationNumber);
 
-    VehicleEntity VehicleEntity = vehicleManager->GetVehicleInfo(registrationNumber);
+    const json vehicle = vehicleManager->GetVehicleInfo(registrationNumber);
 
-    if (!VehicleEntity.GetRegistrationNumber().empty()) {
-        std::cout << "Registration Number: " << VehicleEntity.GetRegistrationNumber() << std::endl;
-        std::cout << "Model: " << VehicleEntity.GetModel() << std::endl;
-        std::cout << "Type: " << VehicleEntity.GetVehicleType() << std::endl;
-        std::cout << "Owner's Name: " << VehicleEntity.GetOwnerName() << std::endl;
-        std::cout << "Owner's Address: " << VehicleEntity.GetOwnerAddress() << std::endl;
-    } else {
-        std::cout << "Vehicle not found." << std::endl;
-    }
+    // def prog?
+
+    // TODO: Extract to View
+    std::cout << "Registration Number: " << vehicle["registration_number"].get<std::string>() << std::endl;
+    std::cout << "Model: " << vehicle["model"].get<std::string>() << std::endl;
+    std::cout << "Type: " << vehicle["vehicle_type"].get<std::string>() << std::endl;
+    std::cout << "Owner's Name: " << vehicle["owner_name"].get<std::string>() << std::endl;
+    std::cout << "Owner's Address: " << vehicle["owner_address"].get<std::string>() << std::endl;
+}
+
+json VehicleUI::SerializeDataForBL(const std::string reg_number,
+    const std::string model,
+    const std::string type,
+    const std::string name,
+    const std::string address)
+{
+    json j;
+    j["registration_number"] = reg_number;
+    j["model"] = model;
+    j["vehicle_type"] = type;
+    j["owner_name"] = name;
+    j["owner_address"] = address;
+
+    return j;
 }

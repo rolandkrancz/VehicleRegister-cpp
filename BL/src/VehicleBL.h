@@ -5,14 +5,18 @@
 #include "IStorage.h"
 #include "IVehicleManager.h"
 
-class VehicleBL : public IVehicleManager {
+class VehicleBL : public IVehicleManager {      // Interactor
 private:
     IStorage* storage;
 
 public:
     VehicleBL(IStorage* storage);
-    void RegisterVehicle(VehicleEntity VehicleEntity);
-    VehicleEntity GetVehicleInfo(std::string registrationNumber);
+    void RegisterVehicle(const json vehicle);
+    json GetVehicleInfo(const std::string registrationNumber);
+
+private:
+    static VehicleEntity JsonToVehicleEntity(const json vehicle);
+    static json VehicleEntityToJson(const VehicleEntity vehicle);
 };
 
 #endif // BUSINESS_LOGIC_H

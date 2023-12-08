@@ -19,6 +19,7 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="src\ext\json.hpp" />
     <ClInclude Include="src\IStorage.h" />
     <ClInclude Include="src\IVehicleManager.h" />
     <ClInclude Include="src\VehicleBL.h" />

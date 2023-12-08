@@ -10,5 +10,7 @@ int main() {
     vehicleUI.DisplayMainMenu();
 
     delete vehicleManager;
+    delete persistency;
+
     return 0;
 }
