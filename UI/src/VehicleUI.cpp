@@ -1,4 +1,5 @@
 #include "VehicleUI.h"
+#include "View.h"
 
 VehicleUI::VehicleUI(IVehicleManager* vehicleManager) : vehicleManager(vehicleManager) {}
 
@@ -25,44 +26,30 @@ void VehicleUI::DisplayMainMenu() {
 void VehicleUI::AddRecord() {
     std::string reg_number, model, type, name, address;
 
-    // extract ->View - GetInput
-    std::cout << "Enter registration number: ";
-    std::getline(std::cin, reg_number);
-    std::cout << "Enter model: ";
-    std::getline(std::cin, model);
-    std::cout << "Enter type: ";
-    std::getline(std::cin, type);
-    std::cout << "Enter owner's name: ";
-    std::getline(std::cin, name);
-    std::cout << "Enter owner's address: ";
-    std::getline(std::cin, address);
-
+    reg_number = View::GetInput("Enter registration number: ");
+    model = View::GetInput("Enter model : ");
+    type = View::GetInput("Enter type: ");
+    name = View::GetInput("Enter owner's name: ");
+    address = View::GetInput("Enter owner's address: ");
     const json vehicle = SerializeDataForBL(reg_number, model, type, name, address);
+
     vehicleManager->RegisterVehicle(vehicle);
-}
+}   
 
 void VehicleUI::GetVehicleInfo() {
-    std::string registrationNumber;
-    std::cout << "Enter registration number: ";
-    std::getline(std::cin, registrationNumber);
 
+    std::string registrationNumber = View::GetInput("Enter registration number: ");
     const json vehicle = vehicleManager->GetVehicleInfo(registrationNumber);
+    // def prog? -> minimal + error kijelzes
 
-    // def prog?
-
-    // TODO: Extract to View
-    std::cout << "Registration Number: " << vehicle["registration_number"].get<std::string>() << std::endl;
-    std::cout << "Model: " << vehicle["model"].get<std::string>() << std::endl;
-    std::cout << "Type: " << vehicle["vehicle_type"].get<std::string>() << std::endl;
-    std::cout << "Owner's Name: " << vehicle["owner_name"].get<std::string>() << std::endl;
-    std::cout << "Owner's Address: " << vehicle["owner_address"].get<std::string>() << std::endl;
+    View::DisplayVehicle(vehicle);
 }
 
 json VehicleUI::SerializeDataForBL(const std::string reg_number,
-    const std::string model,
-    const std::string type,
-    const std::string name,
-    const std::string address)
+                                   const std::string model,
+                                   const std::string type,
+                                   const std::string name,
+                                   const std::string address)
 {
     json j;
     j["registration_number"] = reg_number;

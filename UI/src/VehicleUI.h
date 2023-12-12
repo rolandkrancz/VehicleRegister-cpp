@@ -16,10 +16,10 @@ private:
     void AddRecord();
     void GetVehicleInfo();
     static json SerializeDataForBL(const std::string reg_number,
-                            const std::string model,
-                            const std::string type,
-                            const std::string name,
-                            const std::string address);
+                                   const std::string model,
+                                   const std::string type,
+                                   const std::string name,
+                                   const std::string address);
 };
 
 #endif // VEHICLE_UI_H

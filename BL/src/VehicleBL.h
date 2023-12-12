@@ -14,7 +14,7 @@ public:
     void RegisterVehicle(const json vehicle);
     json GetVehicleInfo(const std::string registrationNumber);
 
-private:
+private:    // extract to helper / converter class
     static VehicleEntity JsonToVehicleEntity(const json vehicle);
     static json VehicleEntityToJson(const VehicleEntity vehicle);
 };

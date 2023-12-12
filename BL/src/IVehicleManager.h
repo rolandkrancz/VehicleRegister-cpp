@@ -8,10 +8,10 @@ using json = nlohmann::json;
 
 class IVehicleManager {
 public:
-    virtual ~IVehicleManager() = default;
+    //virtual ~IVehicleManager() = default;  ??
 
     virtual void RegisterVehicle(const json vehicle) = 0;
-    virtual json GetVehicleInfo(const std::string registrationNumber) = 0;
+    virtual json GetVehicleInfo(const std::string registrationNumber) = 0; // parameter: json, async
 };
 
 #endif // IVEHICLE_MANAGER_H

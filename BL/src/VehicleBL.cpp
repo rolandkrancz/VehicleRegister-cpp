@@ -17,9 +17,10 @@ json VehicleBL::GetVehicleInfo(const std::string registrationNumber) {
 	
 	VehicleEntity vehicleEntity = storage->Load(registrationNumber);
 
-	return VehicleEntityToJson(vehicleEntity);
+	return VehicleEntityToJson(vehicleEntity); // -> async, presenter
 }
 
+// Extract to helper/convert class
 VehicleEntity VehicleBL::JsonToVehicleEntity(const json vehicle)
 {
 	return VehicleEntity(

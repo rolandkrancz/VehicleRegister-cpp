@@ -20,9 +20,11 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\VehicleUI.cpp" />
+    <ClCompile Include="src\View.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\VehicleUI.h" />
+    <ClInclude Include="src\View.h" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>16.0</VCProjectVersion>
