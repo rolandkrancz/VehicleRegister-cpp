@@ -3,15 +3,15 @@
 
 #include "VehicleEntity.h"
 #include "ext/json.hpp"
+#include <string>
 
 using json = nlohmann::json;
 
 class IVehicleManager {
 public:
-    //virtual ~IVehicleManager() = default;  ??
-
+    
     virtual void RegisterVehicle(const json vehicle) = 0;
-    virtual json GetVehicleInfo(const std::string registrationNumber) = 0; // parameter: json, async
+    virtual json GetVehicleInfo(const json request) = 0; // TODO async
 };
 
 #endif // IVEHICLE_MANAGER_H

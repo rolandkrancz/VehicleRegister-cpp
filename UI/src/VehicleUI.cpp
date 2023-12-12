@@ -6,20 +6,12 @@ VehicleUI::VehicleUI(IVehicleManager* vehicleManager) : vehicleManager(vehicleMa
 void VehicleUI::DisplayMainMenu() {
     while (true) {
 
-        // TODO: Extract to View
-        std::cout << "\n1. Add Vehicle Record" << std::endl;
-        std::cout << "2. Get Vehicle Info" << std::endl;
-        std::cout << "3. Exit\n" << std::endl;
-        std::string selection;
-        std::getline(std::cin, selection);
+        View::DisplayMenu();
+        const std::string selection = View::GetInput("");
 
-        if (selection == "1") {
-            AddRecord();
-        } else if (selection == "2") {
-            GetVehicleInfo();
-        } else if (selection == "3") {
-            break;
-        }
+        if (selection == "1") AddRecord();
+        else if (selection == "2") GetVehicleInfo();
+        else if (selection == "3") break;
     }
 }
 
@@ -38,11 +30,13 @@ void VehicleUI::AddRecord() {
 
 void VehicleUI::GetVehicleInfo() {
 
-    std::string registrationNumber = View::GetInput("Enter registration number: ");
-    const json vehicle = vehicleManager->GetVehicleInfo(registrationNumber);
+    json request;
+    request["registration_number"] = View::GetInput("Enter registration number: ");
+
+    const json response = vehicleManager->GetVehicleInfo(request);
     // def prog? -> minimal + error kijelzes
 
-    View::DisplayVehicle(vehicle);
+    View::DisplayVehicle(response);
 }
 
 json VehicleUI::SerializeDataForBL(const std::string reg_number,
@@ -57,6 +51,6 @@ json VehicleUI::SerializeDataForBL(const std::string reg_number,
     j["vehicle_type"] = type;
     j["owner_name"] = name;
     j["owner_address"] = address;
-
+    
     return j;
 }

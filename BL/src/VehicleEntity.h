@@ -19,8 +19,6 @@ public:
     std::string GetVehicleType() const;
     std::string GetOwnerName() const;
     std::string GetOwnerAddress() const;
-
-
 };
 
 #endif // VEHICLE_ENTITY_H

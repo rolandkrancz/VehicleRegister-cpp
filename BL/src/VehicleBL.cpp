@@ -5,17 +5,16 @@ VehicleBL::VehicleBL(IStorage* storage) : storage(storage) {}
 void VehicleBL::RegisterVehicle(const json vehicle) {
 
 	// TODO: def prog.
-
 	const VehicleEntity vehicleEntity = JsonToVehicleEntity(vehicle);
 
-    storage->Save(vehicleEntity);
+	storage->Save(vehicleEntity);
 }
 
-json VehicleBL::GetVehicleInfo(const std::string registrationNumber) {
-	
+json VehicleBL::GetVehicleInfo(const json request) {
+
 	// TODO: def prog.
-	
-	VehicleEntity vehicleEntity = storage->Load(registrationNumber);
+	const std::string registrationNumber = request["registration_number"].get<std::string>();
+    VehicleEntity vehicleEntity = storage->Load(registrationNumber);
 
 	return VehicleEntityToJson(vehicleEntity); // -> async, presenter
 }
@@ -23,7 +22,7 @@ json VehicleBL::GetVehicleInfo(const std::string registrationNumber) {
 // Extract to helper/convert class
 VehicleEntity VehicleBL::JsonToVehicleEntity(const json vehicle)
 {
-	return VehicleEntity(
+    return VehicleEntity(
 		vehicle["registration_number"].get<std::string>(),
 		vehicle["model"].get<std::string>(),
 		vehicle["vehicle_type"].get<std::string>(),

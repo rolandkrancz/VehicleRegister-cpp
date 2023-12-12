@@ -12,7 +12,7 @@ private:
 public:
     VehicleBL(IStorage* storage);
     void RegisterVehicle(const json vehicle);
-    json GetVehicleInfo(const std::string registrationNumber);
+    json GetVehicleInfo(const json request);
 
 private:    // extract to helper / converter class
     static VehicleEntity JsonToVehicleEntity(const json vehicle);
