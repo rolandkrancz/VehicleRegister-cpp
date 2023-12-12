@@ -1,5 +1,4 @@
-#ifndef ISTORAGE_H
-#define ISTORAGE_H
+#pragma once
 
 #include "VehicleEntity.h"
 
@@ -10,5 +9,3 @@ public:
     virtual void Save(VehicleEntity VehicleEntity) = 0;
     virtual VehicleEntity Load(std::string registrationNumber) = 0;
 };
-
-#endif // ISTORAGE_H

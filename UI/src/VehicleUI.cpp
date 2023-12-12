@@ -34,6 +34,7 @@ void VehicleUI::GetVehicleInfo() {
     request["registration_number"] = View::GetInput("Enter registration number: ");
 
     const json response = vehicleManager->GetVehicleInfo(request);
+
     // def prog? -> minimal + error kijelzes
 
     View::DisplayVehicle(response);

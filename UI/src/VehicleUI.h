@@ -1,5 +1,4 @@
-#ifndef VEHICLE_UI_H
-#define VEHICLE_UI_H
+#pragma once
 
 #include <iostream>
 #include "IVehicleManager.h"
@@ -21,5 +20,3 @@ private:
                                    const std::string name,
                                    const std::string address);
 };
-
-#endif // VEHICLE_UI_H

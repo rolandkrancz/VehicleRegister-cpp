@@ -1,5 +1,4 @@
-#ifndef IVEHICLE_MANAGER_H
-#define IVEHICLE_MANAGER_H
+#pragma once
 
 #include "VehicleEntity.h"
 #include "ext/json.hpp"
@@ -13,5 +12,3 @@ public:
     virtual void RegisterVehicle(const json vehicle) = 0;
     virtual json GetVehicleInfo(const json request) = 0; // TODO async
 };
-
-#endif // IVEHICLE_MANAGER_H

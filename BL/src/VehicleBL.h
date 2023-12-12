@@ -1,5 +1,4 @@
-#ifndef BUSINESS_LOGIC_H
-#define BUSINESS_LOGIC_H
+#pragma once
 
 #include "VehicleEntity.h"
 #include "IStorage.h"
@@ -18,5 +17,3 @@ private:    // extract to helper / converter class
     static VehicleEntity JsonToVehicleEntity(const json vehicle);
     static json VehicleEntityToJson(const VehicleEntity vehicle);
 };
-
-#endif // BUSINESS_LOGIC_H

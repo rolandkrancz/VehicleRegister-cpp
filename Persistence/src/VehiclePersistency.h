@@ -1,5 +1,4 @@
-#ifndef VEHICLE_PERSISTENCY_H
-#define VEHICLE_PERSISTENCY_H
+#pragma once
 
 #include "IStorage.h"
 #include "VehicleEntity.h"
@@ -9,5 +8,3 @@ public:
     void Save(VehicleEntity vehicle) override;
     VehicleEntity Load(std::string registrationNumber) override;
 };
-
-#endif // VEHICLE_PERSISTENCY_H

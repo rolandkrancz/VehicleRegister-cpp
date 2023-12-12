@@ -1,5 +1,4 @@
-#ifndef VEHICLE_ENTITY_H
-#define VEHICLE_ENTITY_H
+#pragma once
 
 #include <string>
 
@@ -20,5 +19,3 @@ public:
     std::string GetOwnerName() const;
     std::string GetOwnerAddress() const;
 };
-
-#endif // VEHICLE_ENTITY_H
