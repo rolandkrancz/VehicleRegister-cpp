@@ -19,4 +19,7 @@ private:
                                    const std::string type,
                                    const std::string name,
                                    const std::string address);
+    static json CreateVehicleInfoRequest(const std::string registrationNumber);
+    static bool IsRegistrationNumberValid(const std::string registrationNumber);
+    static bool IsResponseValidForGivenRequest(const json request, const json response);
 };

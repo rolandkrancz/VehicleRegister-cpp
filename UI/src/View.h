@@ -10,4 +10,5 @@ public:
 	static void DisplayMenu(void);
 	static std::string GetInput(std::string text);
 	static void DisplayVehicle(json vehicle);
+	static void DisplayError(const std::string errorMessage);
 };

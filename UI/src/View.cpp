@@ -27,3 +27,8 @@ void View::DisplayVehicle(json vehicle)
 	std::cout << "Owner's Name: " << vehicle["owner_name"].get<std::string>() << std::endl;
 	std::cout << "Owner's Address: " << vehicle["owner_address"].get<std::string>() << std::endl;
 }
+
+void View::DisplayError(const std::string errorMessage)
+{
+	std::cout << "ERROR: " << errorMessage << std::endl;
+}

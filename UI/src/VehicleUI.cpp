@@ -30,14 +30,28 @@ void VehicleUI::AddRecord() {
 
 void VehicleUI::GetVehicleInfo() {
 
-    json request;
-    request["registration_number"] = View::GetInput("Enter registration number: ");
+    std::string registrationNumber = View::GetInput("Enter registration number: ");
+    std::string error = IsRegistrationNumberValid(registrationNumber) ? "" : "Invalid registration number.";
 
-    const json response = vehicleManager->GetVehicleInfo(request);
+    if (error == "")
+    {
+        const json request = CreateVehicleInfoRequest(registrationNumber);
+        const json response = vehicleManager->GetVehicleInfo(request);
 
-    // def prog? -> minimal + error kijelzes
+        if (IsResponseValidForGivenRequest(request, response))
+        {
+            View::DisplayVehicle(response);
+        }
+        else
+        {
+            error = "Response is corrupted.";
+        }
+    }
 
-    View::DisplayVehicle(response);
+    if (error != "")
+    {
+        View::DisplayError(error);
+    }
 }
 
 json VehicleUI::SerializeDataForBL(const std::string reg_number,
@@ -54,4 +68,22 @@ json VehicleUI::SerializeDataForBL(const std::string reg_number,
     j["owner_address"] = address;
     
     return j;
+}
+
+json VehicleUI::CreateVehicleInfoRequest(const std::string registrationNumber)
+{
+    json request;
+    request["registration_number"] = registrationNumber;
+
+    return request;
+}
+
+bool VehicleUI::IsRegistrationNumberValid(const std::string registrationNumber)
+{
+    return (registrationNumber != "");
+}
+
+bool VehicleUI::IsResponseValidForGivenRequest(const json request, const json response)
+{
+    return (response["registration_number"].get<std::string>() == request["registration_number"].get<std::string>());
 }
