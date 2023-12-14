@@ -1,13 +1,13 @@
 #include "VehicleUI.h"
-#include "View.h"
 
-VehicleUI::VehicleUI(IVehicleManager* vehicleManager) : vehicleManager(vehicleManager) {}
+VehicleUI::VehicleUI(IVehicleManager* vehicleManager, View* view) :
+    vehicleManager(vehicleManager), view(view) {}
 
 void VehicleUI::DisplayMainMenu() {
     while (true) {
 
-        View::DisplayMenu();
-        const std::string selection = View::GetInput("");
+        view->DisplayMenu();
+        const std::string selection = view->GetInput("");
 
         if (selection == "1") AddRecord();
         else if (selection == "2") GetVehicleInfo();
@@ -18,11 +18,11 @@ void VehicleUI::DisplayMainMenu() {
 void VehicleUI::AddRecord() {
     std::string reg_number, model, type, name, address;
 
-    reg_number = View::GetInput("Enter registration number: ");
-    model = View::GetInput("Enter model : ");
-    type = View::GetInput("Enter type: ");
-    name = View::GetInput("Enter owner's name: ");
-    address = View::GetInput("Enter owner's address: ");
+    reg_number = view->GetInput("Enter registration number: ");
+    model = view->GetInput("Enter model : ");
+    type = view->GetInput("Enter type: ");
+    name = view->GetInput("Enter owner's name: ");
+    address = view->GetInput("Enter owner's address: ");
     const json vehicle = SerializeDataForBL(reg_number, model, type, name, address);
 
     vehicleManager->RegisterVehicle(vehicle);
@@ -30,7 +30,7 @@ void VehicleUI::AddRecord() {
 
 void VehicleUI::GetVehicleInfo() {
 
-    std::string registrationNumber = View::GetInput("Enter registration number: ");
+    std::string registrationNumber = view->GetInput("Enter registration number: ");
     std::string error = IsRegistrationNumberValid(registrationNumber) ? "" : "Invalid registration number.";
 
     if (error == "")
@@ -40,7 +40,7 @@ void VehicleUI::GetVehicleInfo() {
 
         if (IsResponseValidForGivenRequest(request, response))
         {
-            View::DisplayVehicle(response);
+            view->DisplayVehicle(response);
         }
         else
         {
@@ -50,7 +50,7 @@ void VehicleUI::GetVehicleInfo() {
 
     if (error != "")
     {
-        View::DisplayError(error);
+        view->DisplayError(error);
     }
 }
 

@@ -2,13 +2,15 @@
 
 #include <iostream>
 #include "IVehicleManager.h"
+#include "View.h"
 
 class VehicleUI {
 private:
     IVehicleManager* vehicleManager;
+    View* view;
 
 public:
-    VehicleUI(IVehicleManager* vehicleManager);
+    VehicleUI(IVehicleManager* vehicleManager, View* view);
     void DisplayMainMenu();
 
 private:
