@@ -5,7 +5,6 @@ VehicleUI::VehicleUI(UIController* controller, View* view) :
 
 void VehicleUI::DisplayMainMenu() {
     while (true) {
-
         view->DisplayMenu();
         const std::string selection = view->GetInput("");
 

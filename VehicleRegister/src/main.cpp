@@ -11,8 +11,8 @@ int main() {
     
     View* view = new View();
     UIController* controller = new UIController(interactor);
-    VehicleUI vehicleUI(controller, view);
-    vehicleUI.DisplayMainMenu();
+    VehicleUI ui(controller, view);
+    ui.DisplayMainMenu();
 
     delete controller;
     delete interactor;
