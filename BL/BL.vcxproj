@@ -19,6 +19,7 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="src\Converter.h" />
     <ClInclude Include="src\ext\json.hpp" />
     <ClInclude Include="src\IStorage.h" />
     <ClInclude Include="src\IVehicleManager.h" />
@@ -26,6 +27,7 @@
     <ClInclude Include="src\VehicleEntity.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="src\Converter.cpp" />
     <ClCompile Include="src\IPresenterApi.h" />
     <ClCompile Include="src\VehicleInteractor.cpp" />
     <ClCompile Include="src\VehicleEntity.cpp" />

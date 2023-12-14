@@ -8,7 +8,7 @@ void UIController::RegisterVehicle(const std::string reg_number,
                                    const std::string name,
                                    const std::string address)
 {
-    const json request = SerializeDataForBL(reg_number, model, type, name, address);
+    const json request = CreateRegisterVehicleRequest(reg_number, model, type, name, address);
 
     vehicleApi->RegisterVehicle(request);
 }
@@ -20,11 +20,11 @@ void UIController::GetVehicleInfo(const std::string registrationNumber)
     vehicleApi->GetVehicleInfo(request);
 }
 
-json UIController::SerializeDataForBL(const std::string reg_number,
-                                      const std::string model,
-                                      const std::string type,
-                                      const std::string name,
-                                      const std::string address)
+json UIController::CreateRegisterVehicleRequest(const std::string reg_number,
+                                                const std::string model,
+                                                const std::string type,
+                                                const std::string name,
+                                                const std::string address)
 {
     json j;
     j["registration_number"] = reg_number;
