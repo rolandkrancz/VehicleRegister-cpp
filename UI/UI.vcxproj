@@ -19,10 +19,12 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="src\UIController.cpp" />
     <ClCompile Include="src\VehicleUI.cpp" />
     <ClCompile Include="src\View.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="src\UIController.h" />
     <ClInclude Include="src\VehicleUI.h" />
     <ClInclude Include="src\View.h" />
   </ItemGroup>
