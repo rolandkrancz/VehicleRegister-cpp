@@ -13,7 +13,7 @@ public:
                          const std::string type,
                          const std::string name,
                          const std::string address);
-    json GetVehicleInfo(const std::string registrationNumber);
+    void GetVehicleInfo(const std::string registrationNumber);
 
 private:
     static json SerializeDataForBL(const std::string reg_number,

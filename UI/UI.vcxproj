@@ -20,10 +20,12 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\UIController.cpp" />
+    <ClCompile Include="src\UIPresenter.cpp" />
     <ClCompile Include="src\VehicleUI.cpp" />
     <ClCompile Include="src\View.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="src\UIPresenter.h" />
     <ClInclude Include="src\UIController.h" />
     <ClInclude Include="src\VehicleUI.h" />
     <ClInclude Include="src\View.h" />

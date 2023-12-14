@@ -29,6 +29,6 @@ void VehicleUI::AddRecord() {
 void VehicleUI::GetVehicleInfo() {
 
     const std::string registrationNumber = view->GetInput("Enter registration number: ");
-    const json response = controller->GetVehicleInfo(registrationNumber);
-    view->DisplayVehicle(response);
+
+    controller->GetVehicleInfo(registrationNumber);
 }

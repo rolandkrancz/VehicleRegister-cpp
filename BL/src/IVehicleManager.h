@@ -10,5 +10,5 @@ class IVehicleManager {
 public:
     
     virtual void RegisterVehicle(const json vehicle) = 0;
-    virtual json GetVehicleInfo(const json request) = 0; // TODO async
+    virtual void GetVehicleInfo(const json request) = 0; // TODO async
 };

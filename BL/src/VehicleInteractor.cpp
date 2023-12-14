@@ -1,6 +1,6 @@
 #include "VehicleInteractor.h"
 
-VehicleInteractor::VehicleInteractor(IStorage* storage) : storage(storage) {}
+VehicleInteractor::VehicleInteractor(IStorage* storage, IPresenterApi* presenter) : storage(storage), presenter(presenter) {}
 
 void VehicleInteractor::RegisterVehicle(const json vehicle) {
 
@@ -10,13 +10,14 @@ void VehicleInteractor::RegisterVehicle(const json vehicle) {
 	storage->Save(vehicleEntity);
 }
 
-json VehicleInteractor::GetVehicleInfo(const json request) {
+void VehicleInteractor::GetVehicleInfo(const json request) {
 
 	// TODO: def prog.
 	const std::string registrationNumber = request["registration_number"].get<std::string>();
     VehicleEntity vehicleEntity = storage->Load(registrationNumber);
+	const json vehicle = VehicleEntityToJson(vehicleEntity);
 
-	return VehicleEntityToJson(vehicleEntity); // -> async, presenter
+	presenter->DisplayVehicle(vehicle);
 }
 
 // Extract to helper/convert class
