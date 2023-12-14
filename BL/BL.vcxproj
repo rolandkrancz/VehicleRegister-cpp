@@ -22,11 +22,11 @@
     <ClInclude Include="src\ext\json.hpp" />
     <ClInclude Include="src\IStorage.h" />
     <ClInclude Include="src\IVehicleManager.h" />
-    <ClInclude Include="src\VehicleBL.h" />
+    <ClInclude Include="src\VehicleInteractor.h" />
     <ClInclude Include="src\VehicleEntity.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="src\VehicleBL.cpp" />
+    <ClCompile Include="src\VehicleInteractor.cpp" />
     <ClCompile Include="src\VehicleEntity.cpp" />
   </ItemGroup>
   <PropertyGroup Label="Globals">

@@ -21,7 +21,7 @@
     <ClInclude Include="src\IVehicleManager.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="src\VehicleBL.h">
+    <ClInclude Include="src\VehicleInteractor.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="src\VehicleEntity.h">
@@ -32,7 +32,7 @@
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="src\VehicleBL.cpp">
+    <ClCompile Include="src\VehicleInteractor.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="src\VehicleEntity.cpp">
