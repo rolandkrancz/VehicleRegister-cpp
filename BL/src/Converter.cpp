@@ -22,3 +22,8 @@ json Converter::VehicleEntityToJson(const VehicleEntity input)
 
 	return output;
 }
+
+std::string Converter::GetRegistrationNumber(const json input)
+{
+	return input["registration_number"].get<std::string>();
+}

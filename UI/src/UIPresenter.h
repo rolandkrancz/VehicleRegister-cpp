@@ -8,5 +8,6 @@ private:
     View* view;
 public:
     UIPresenter(View* view);
-    void DisplayVehicle(const json vehicle);
+    void DisplayVehicleInfo(const json vehicle);
+    void DisplayError(const json error);
 };

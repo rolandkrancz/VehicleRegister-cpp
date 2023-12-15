@@ -7,5 +7,5 @@ using json = nlohmann::json;
 class IPresenterApi {
 public:
 
-    virtual void DisplayVehicle(const json vehicle) = 0;
+    virtual void DisplayVehicleInfo(const json vehicle) = 0;
 };

@@ -14,9 +14,9 @@ void VehicleInteractor::RegisterVehicle(const json vehicle)
 void VehicleInteractor::GetVehicleInfo(const json request)
 {
 	// TODO: def prog.
-	const std::string registrationNumber = request["registration_number"].get<std::string>();
-    VehicleEntity vehicleEntity = storage->Load(registrationNumber);
+	const std::string registrationNumber = Converter::GetRegistrationNumber(request);
+    const VehicleEntity vehicleEntity = storage->Load(registrationNumber);
 	const json vehicle = Converter::VehicleEntityToJson(vehicleEntity);
 
-	presenter->DisplayVehicle(vehicle);
+	presenter->DisplayVehicleInfo(vehicle);
 }

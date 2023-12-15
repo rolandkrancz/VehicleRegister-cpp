@@ -9,4 +9,5 @@ class Converter {
 public:
     static VehicleEntity JsonToVehicleEntity(const json input);
     static json VehicleEntityToJson(const VehicleEntity input);
+    static std::string GetRegistrationNumber(const json input);
 };
