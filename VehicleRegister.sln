@@ -11,6 +11,8 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Persistence", "Persistence\
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "UI", "UI\UI.vcxproj", "{1045C364-9006-4439-908B-8BE3B6A0D4DC}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "CoreTest", "CoreTest\CoreTest.vcxproj", "{FF7DAB69-AF23-4E91-9349-555E83BB1ACE}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x64 = Debug|x64
@@ -51,6 +53,14 @@ Global
 		{1045C364-9006-4439-908B-8BE3B6A0D4DC}.Release|x64.Build.0 = Release|x64
 		{1045C364-9006-4439-908B-8BE3B6A0D4DC}.Release|x86.ActiveCfg = Release|Win32
 		{1045C364-9006-4439-908B-8BE3B6A0D4DC}.Release|x86.Build.0 = Release|Win32
+		{FF7DAB69-AF23-4E91-9349-555E83BB1ACE}.Debug|x64.ActiveCfg = Debug|x64
+		{FF7DAB69-AF23-4E91-9349-555E83BB1ACE}.Debug|x64.Build.0 = Debug|x64
+		{FF7DAB69-AF23-4E91-9349-555E83BB1ACE}.Debug|x86.ActiveCfg = Debug|Win32
+		{FF7DAB69-AF23-4E91-9349-555E83BB1ACE}.Debug|x86.Build.0 = Debug|Win32
+		{FF7DAB69-AF23-4E91-9349-555E83BB1ACE}.Release|x64.ActiveCfg = Release|x64
+		{FF7DAB69-AF23-4E91-9349-555E83BB1ACE}.Release|x64.Build.0 = Release|x64
+		{FF7DAB69-AF23-4E91-9349-555E83BB1ACE}.Release|x86.ActiveCfg = Release|Win32
+		{FF7DAB69-AF23-4E91-9349-555E83BB1ACE}.Release|x86.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
