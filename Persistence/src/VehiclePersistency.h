@@ -4,7 +4,11 @@
 #include "VehicleEntity.h"
 
 class VehiclePersistency : public IStorage {
+private:
+    std::string fileName;
+
 public:
-    void Save(VehicleEntity vehicle) override;
-    VehicleEntity Load(std::string registrationNumber) override;
+    VehiclePersistency(const std::string fileName);
+    void Save(const VehicleEntity vehicle) override;
+    VehicleEntity Load(const std::string registrationNumber) override;
 };

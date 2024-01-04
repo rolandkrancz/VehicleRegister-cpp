@@ -3,23 +3,25 @@
 #include <sstream>
 #include <vector>
 
-#define PATH_TO_DB_FILE "../Persistence/database.txt"
+#define DB_DIRECTORY "../Persistence/"
 
-void VehiclePersistency::Save(VehicleEntity vehicle) {
-    std::ofstream file(PATH_TO_DB_FILE, std::ios::app);
+VehiclePersistency::VehiclePersistency(const std::string fileName) : fileName(fileName) {}
+
+void VehiclePersistency::Save(const VehicleEntity vehicle) {
+    std::ofstream file(DB_DIRECTORY + this->fileName, std::ios::app);
     if (file.is_open()) {
-        file << vehicle.GetRegistrationNumber() << ", "
-             << vehicle.GetModel() << ", "
-             << vehicle.GetVehicleType() << ", "
-             << vehicle.GetOwnerName() << ", "
+        file << vehicle.GetRegistrationNumber() << ","
+             << vehicle.GetModel() << ","
+             << vehicle.GetVehicleType() << ","
+             << vehicle.GetOwnerName() << ","
              << vehicle.GetOwnerAddress() << "\n";
         file.close();
     }
 }
 
-VehicleEntity VehiclePersistency::Load(std::string registrationNumber) {
+VehicleEntity VehiclePersistency::Load(const std::string registrationNumber) {
 
-    std::ifstream file(PATH_TO_DB_FILE);
+    std::ifstream file(DB_DIRECTORY + this->fileName);
     VehicleEntity vehicle;
 
     if (file.is_open()) {

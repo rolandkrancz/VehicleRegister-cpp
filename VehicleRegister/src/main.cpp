@@ -6,10 +6,12 @@
 #include "UIController.h"
 #include "UIPresenter.h"
 
+#define DB_FILE_NAME "database.txt"
+
 int main() {
     View* view = new View();
     UIPresenter* presenter = new UIPresenter(view);
-    VehiclePersistency* persistency = new VehiclePersistency();
+    VehiclePersistency* persistency = new VehiclePersistency(DB_FILE_NAME);
     VehicleInteractor* interactor = new VehicleInteractor(persistency, presenter);
     UIController* controller = new UIController(interactor);
     VehicleUI ui(controller, view);
