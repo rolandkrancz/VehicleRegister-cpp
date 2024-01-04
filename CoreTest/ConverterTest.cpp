@@ -27,7 +27,6 @@ TEST(ConverterTest, ValidInput_JsonToVehicleEntity_ReturnVehicleEntity)
         {"vehicle_type", "SampleType"},
         {"owner_name", "Béla"},
         {"owner_address", "Budapest"},
-
     };
 
     const VehicleEntity result = Converter::JsonToVehicleEntity(testInput);
