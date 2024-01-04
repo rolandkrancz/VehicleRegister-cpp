@@ -18,4 +18,12 @@ public:
     std::string GetVehicleType() const;
     std::string GetOwnerName() const;
     std::string GetOwnerAddress() const;
+
+    bool operator==(const VehicleEntity& other) const {
+        return registration_number == other.registration_number &&
+                model == other.model &&
+                vehicle_type == other.vehicle_type &&
+                owner_address == other.owner_address &&
+                owner_name == owner_name;
+    }
 };

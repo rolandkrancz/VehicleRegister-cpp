@@ -1,31 +1,49 @@
 #include "pch.h"
 #include "../BL/src/VehicleInteractor.h"
+#include "../BL/src/Converter.h"
 #include <gmock/gmock.h>
 
 class MockStorage : public IStorage {
     public:
-    MOCK_METHOD1(Save,void(VehicleEntity));
+    MOCK_METHOD1(Save,void(const VehicleEntity));
     MOCK_METHOD1(Load, VehicleEntity(std::string));
 };
 
-TEST(VehicleInteractorTest, test1)
+class MockPresenter : public IPresenterApi {
+    public:
+    MOCK_METHOD1(DisplayVehicleInfo, void(const json));
+};
+
+static const json S_testInput = {
+        {"registration_number", "TEST001"},
+        {"model", "SampleModel"},
+        {"vehicle_type", "SampleType"},
+        {"owner_name", "Béla"},
+        {"owner_address", "Budapest"},
+};
+
+static const VehicleEntity S_testEntity = Converter::JsonToVehicleEntity(S_testInput);
+static std::string S_testRegistrationNumber = Converter::GetRegistrationNumber(S_testInput);
+
+TEST(VehicleInteractorTest, RegisterVehicleIsCalled_ConvertToVehicleEntityAndStore)
 {
     MockStorage storage;
-    VehicleInteractor* interactor = new VehicleInteractor(&storage, NULL);
+    MockPresenter presenter;
+    VehicleInteractor interactor(&storage, &presenter);
 
-    json testInput = {
-    {"registration_number", "TEST001"},
-    {"model", "SampleModel"},
-    {"vehicle_type", "SampleType"},
-    {"owner_name", "Béla"},
-    {"owner_address", "Budapest"},
-    };
+    EXPECT_CALL(storage, Save(S_testEntity));
 
-    VehicleEntity asd("TEST001", "SampleModel", "SampleType", "Béla", "Budapest");
+    interactor.RegisterVehicle(S_testInput);
+}
 
-    EXPECT_CALL(storage, Save(asd));
+TEST(VehicleInteractorTest, GetVehicleInfoIsCalled_ReturnVehicle)
+{
+    MockStorage storage;
+    MockPresenter presenter;
+    VehicleInteractor interactor(&storage, &presenter);
 
-    interactor->RegisterVehicle(testInput);
+    EXPECT_CALL(storage, Load(S_testRegistrationNumber)).WillOnce(::testing::Return(S_testEntity));
+    EXPECT_CALL(presenter, DisplayVehicleInfo(S_testInput));
 
-
+    interactor.GetVehicleInfo(S_testInput);
 }
