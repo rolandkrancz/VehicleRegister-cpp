@@ -1,6 +1,6 @@
 #include "UIPresenter.h"
 
-UIPresenter::UIPresenter(View* view) : view(view) {}
+UIPresenter::UIPresenter(IView* view) : view(view) {}
 
 void UIPresenter::DisplayVehicleInfo(const json vehicle)
 {
@@ -11,9 +11,4 @@ void UIPresenter::DisplayVehicleInfo(const json vehicle)
     std::string address = vehicle["owner_address"].get<std::string>();
 
     view->DisplayVehicleInfo(reg_number, model, type, name, address);
-}
-
-void UIPresenter::DisplayError(const json error)
-{
-    view->DisplayError(error);
 }

@@ -2,14 +2,14 @@
 #include "VehicleUI.h"
 #include "VehicleInteractor.h"
 #include "VehiclePersistency.h"
-#include "View.h"
+#include "ConsoleView.h"
 #include "UIController.h"
 #include "UIPresenter.h"
 
 #define DB_FILE_NAME "database.txt"
 
 int main() {
-    View* view = new View();
+    IView* view = new ConsoleView();
     UIPresenter* presenter = new UIPresenter(view);
     VehiclePersistency* persistency = new VehiclePersistency(DB_FILE_NAME);
     VehicleInteractor* interactor = new VehicleInteractor(persistency, presenter);
@@ -21,6 +21,7 @@ int main() {
     delete interactor;
     delete persistency;
     delete presenter;
+    delete view;
 
     return 0;
 }

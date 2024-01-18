@@ -15,7 +15,7 @@ void UIController::RegisterVehicle(const std::string reg_number,
 
 void UIController::GetVehicleInfo(const std::string registrationNumber)
 {
-    const json request = CreateVehicleInfoRequest(registrationNumber);
+    const json request = CreateGetVehicleInfoRequest(registrationNumber);
 
     vehicleApi->GetVehicleInfo(request);
 }
@@ -36,7 +36,7 @@ json UIController::CreateRegisterVehicleRequest(const std::string reg_number,
     return j;
 }
 
-json UIController::CreateVehicleInfoRequest(const std::string registrationNumber)
+json UIController::CreateGetVehicleInfoRequest(const std::string registrationNumber)
 {
     json request;
     request["registration_number"] = registrationNumber;

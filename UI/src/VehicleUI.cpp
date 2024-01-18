@@ -1,6 +1,6 @@
 #include "VehicleUI.h"
 
-VehicleUI::VehicleUI(UIController* controller, View* view) :
+VehicleUI::VehicleUI(UIController* controller, IView* view) :
     controller(controller), view(view) {}
 
 void VehicleUI::DisplayMainMenu() {

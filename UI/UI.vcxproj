@@ -22,13 +22,14 @@
     <ClCompile Include="src\UIController.cpp" />
     <ClCompile Include="src\UIPresenter.cpp" />
     <ClCompile Include="src\VehicleUI.cpp" />
-    <ClCompile Include="src\View.cpp" />
+    <ClCompile Include="src\ConsoleView.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="src\IView.h" />
     <ClInclude Include="src\UIPresenter.h" />
     <ClInclude Include="src\UIController.h" />
     <ClInclude Include="src\VehicleUI.h" />
-    <ClInclude Include="src\View.h" />
+    <ClInclude Include="src\ConsoleView.h" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>16.0</VCProjectVersion>

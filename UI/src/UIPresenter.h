@@ -1,13 +1,12 @@
 #pragma once
 
 #include "IPresenterApi.h"
-#include "View.h"
+#include "IView.h"
 
 class UIPresenter : public IPresenterApi {
 private:
-    View* view;
+    IView* view;
 public:
-    UIPresenter(View* view);
+    UIPresenter(IView* view);
     void DisplayVehicleInfo(const json vehicle);
-    void DisplayError(const json error);
 };

@@ -2,15 +2,15 @@
 
 #include <iostream>
 #include "UIController.h"
-#include "View.h"
+#include "IView.h"
 
 class VehicleUI {
 private:
     UIController* controller;
-    View* view;
+    IView* view;
 
 public:
-    VehicleUI(UIController* controller, View* view);
+    VehicleUI(UIController* controller, IView* view);
     void DisplayMainMenu();
 
 private:
