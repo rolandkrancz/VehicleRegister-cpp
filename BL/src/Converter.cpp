@@ -2,23 +2,26 @@
 
 VehicleEntity Converter::JsonToVehicleEntity(const json input)
 {
-    return VehicleEntity(
-        input["registration_number"].get<std::string>(),
-        input["model"].get<std::string>(),
-        input["vehicle_type"].get<std::string>(),
-        input["owner_name"].get<std::string>(),
-        input["owner_address"].get<std::string>()
-    );
+    VehicleEntity output = {};
+
+    output.registration_number = input["registration_number"].get<std::string>();
+    output.model = input["model"].get<std::string>();
+    output.vehicle_type = input["vehicle_type"].get<std::string>();
+    output.owner_name = input["owner_name"].get<std::string>();
+    output.owner_address = input["owner_address"].get<std::string>();
+    
+    return output;
 }
 
-json Converter::VehicleEntityToJson(const VehicleEntity input)
+json Converter::VehicleEntityToJson(VehicleEntity input)
 {
-    json output;
-    output["registration_number"] = input.GetRegistrationNumber();
-    output["model"] = input.GetModel();
-    output["vehicle_type"] = input.GetVehicleType();
-    output["owner_name"] = input.GetOwnerName();
-    output["owner_address"] = input.GetOwnerAddress();
+    json output = {};
+
+    output["registration_number"] = input.registration_number;
+    output["model"] = input.model;
+    output["vehicle_type"] = input.vehicle_type;
+    output["owner_name"] = input.owner_name;
+    output["owner_address"] = input.owner_address;
 
     return output;
 }

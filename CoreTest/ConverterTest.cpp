@@ -31,11 +31,11 @@ TEST(ConverterTest, ValidInput_JsonToVehicleEntity_ReturnVehicleEntity)
 
     const VehicleEntity result = Converter::JsonToVehicleEntity(testInput);
 
-    EXPECT_EQ("TEST001", result.GetRegistrationNumber());
-    EXPECT_EQ("SampleModel", result.GetModel());
-    EXPECT_EQ("SampleType", result.GetVehicleType());
-    EXPECT_EQ("Béla", result.GetOwnerName());
-    EXPECT_EQ("Budapest", result.GetOwnerAddress());
+    EXPECT_EQ("TEST001", result.registration_number);
+    EXPECT_EQ("SampleModel", result.model);
+    EXPECT_EQ("SampleType", result.vehicle_type);
+    EXPECT_EQ("Béla", result.owner_name);
+    EXPECT_EQ("Budapest", result.owner_address);
 }
 
 TEST(ConverterTest, InvalidInput_JsonToVehicleEntity_Throw)
@@ -49,7 +49,7 @@ TEST(ConverterTest, InvalidInput_JsonToVehicleEntity_Throw)
 
 TEST(ConverterTest, ValidInput_VehicleEntityToJson_ReturnJson)
 {
-    VehicleEntity testInput("TEST001", "SampleModel", "SampleType", "Béla", "Budapest");
+    VehicleEntity testInput{"TEST001", "SampleModel", "SampleType", "Béla", "Budapest"};
 
     const json result = Converter::VehicleEntityToJson(testInput);
 
@@ -62,7 +62,7 @@ TEST(ConverterTest, ValidInput_VehicleEntityToJson_ReturnJson)
 
 TEST(ConverterTest, InvalidInput_VehicleEntityToJson_ReturnEmptyJson)
 {
-    VehicleEntity testInput("", "", "", "", "");
+    VehicleEntity testInput{"", "", "", "", ""};
    
     const json result = Converter::VehicleEntityToJson(testInput);
 

@@ -38,9 +38,6 @@
     <ClCompile Include="src\VehicleInteractor.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="src\VehicleEntity.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="src\IPresenterApi.h">
       <Filter>Source Files</Filter>
     </ClCompile>
