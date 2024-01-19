@@ -18,13 +18,13 @@ std::string ConsoleView::GetInput(std::string text)
     return input;
 }
 
-void ConsoleView::DisplayVehicleInfo(const std::string reg_number,
+void ConsoleView::DisplayVehicleInfo(const std::string registrationNumber,
                                      const std::string model,
                                      const std::string type,
                                      const std::string name,
                                      const std::string address)
 {
-    std::cout << "Registration Number: " << reg_number << std::endl;
+    std::cout << "Registration Number: " << registrationNumber << std::endl;
     std::cout << "Model: " << model << std::endl;
     std::cout << "Type: " << type << std::endl;
     std::cout << "Owner's Name: " << name << std::endl;

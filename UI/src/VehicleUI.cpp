@@ -15,15 +15,15 @@ void VehicleUI::DisplayMainMenu() {
 }
 
 void VehicleUI::AddRecord() {
-    std::string reg_number, model, type, name, address;
+    std::string registrationNumber, model, type, name, address;
 
-    reg_number = view->GetInput("Enter registration number: ");
+    registrationNumber = view->GetInput("Enter registration number: ");
     model = view->GetInput("Enter model : ");
     type = view->GetInput("Enter type: ");
     name = view->GetInput("Enter owner's name: ");
     address = view->GetInput("Enter owner's address: ");
 
-    controller->RegisterVehicle(reg_number, model, type, name, address);
+    controller->RegisterVehicle(registrationNumber, model, type, name, address);
 }   
 
 void VehicleUI::GetVehicleInfo() {

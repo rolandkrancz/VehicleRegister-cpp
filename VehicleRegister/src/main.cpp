@@ -9,7 +9,7 @@
 #define DB_FILE_NAME "database.txt"
 
 int main() {
-    IView* view = new ConsoleView();
+    ConsoleView* view = new ConsoleView();
     UIPresenter* presenter = new UIPresenter(view);
     VehiclePersistency* persistency = new VehiclePersistency(DB_FILE_NAME);
     VehicleInteractor* interactor = new VehicleInteractor(persistency, presenter);
@@ -17,6 +17,7 @@ int main() {
     VehicleUI ui(controller, view);
     ui.DisplayMainMenu();
 
+    // ?
     delete controller;
     delete interactor;
     delete persistency;

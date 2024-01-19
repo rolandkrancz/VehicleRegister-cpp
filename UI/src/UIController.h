@@ -8,7 +8,7 @@ private:
 
 public:
     UIController(IVehicleManager* vehicleApi);
-    void RegisterVehicle(const std::string reg_number,
+    void RegisterVehicle(const std::string registrationNumber,
                          const std::string model,
                          const std::string type,
                          const std::string name,
@@ -16,7 +16,7 @@ public:
     void GetVehicleInfo(const std::string registrationNumber);
 
 private:
-    static json CreateRegisterVehicleRequest(const std::string reg_number,
+    static json CreateRegisterVehicleRequest(const std::string registrationNumber,
                                              const std::string model,
                                              const std::string type,
                                              const std::string name,

@@ -9,7 +9,7 @@ class ConsoleView : public IView {
 public:
 	void DisplayMenu(void) override;
 	std::string GetInput(std::string text) override;
-	void DisplayVehicleInfo(const std::string reg_number,
+	void DisplayVehicleInfo(const std::string registrationNumber,
 							const std::string model,
 							const std::string type,
 							const std::string name,

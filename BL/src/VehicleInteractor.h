@@ -12,10 +12,6 @@ private:
 
 public:
     VehicleInteractor(IStorage* storage, IPresenterApi* presenter);
-    void RegisterVehicle(const json vehicle);
+    void RegisterVehicle(const json request);
     void GetVehicleInfo(const json request);
-
-private:    // extract to helper / converter class
-    static VehicleEntity JsonToVehicleEntity(const json vehicle);
-    static json VehicleEntityToJson(const VehicleEntity vehicle);
 };
