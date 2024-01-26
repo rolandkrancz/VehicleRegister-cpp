@@ -5,7 +5,7 @@
 
 class MockConsoleView : public ConsoleView {
 public:
-    MOCK_METHOD5(DisplayVehicleInfo, void(const std::string, const std::string, const std::string, const std::string, const std::string));
+    MOCK_METHOD1(DisplayVehicleInfo, void(const VehicleViewModel));
 };
 
 TEST(UIPresenterTest, RegisterVehicleIsCalled_CreateRequestAndCallApi) {
@@ -20,7 +20,7 @@ TEST(UIPresenterTest, RegisterVehicleIsCalled_CreateRequestAndCallApi) {
     input["owner_name"] = "4";
     input["owner_address"] = "5";
 
-    EXPECT_CALL(mockView, DisplayVehicleInfo(::testing::_, ::testing::_, ::testing::_, ::testing::_, ::testing::_)).Times(1);
+    EXPECT_CALL(mockView, DisplayVehicleInfo(::testing::_)).Times(1);
     
     presenter.DisplayVehicleInfo(input);
 }

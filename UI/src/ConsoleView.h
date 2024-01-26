@@ -2,14 +2,11 @@
 
 #include <iostream>
 #include <string>
+#include "VehicleViewModel.h"
 
 class ConsoleView {
 public:
 	void DisplayMenu(void);
-	std::string GetInput(std::string text);
-	void DisplayVehicleInfo(const std::string registrationNumber,
-							const std::string model,
-							const std::string type,
-							const std::string name,
-							const std::string address);
+	std::string GetInput(const std::string text);
+	void DisplayVehicleInfo(const VehicleViewModel vehicle);
 };

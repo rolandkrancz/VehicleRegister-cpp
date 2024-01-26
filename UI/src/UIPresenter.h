@@ -9,4 +9,6 @@ private:
 public:
     UIPresenter(ConsoleView* view);
     void DisplayVehicleInfo(const json vehicle);
+private:
+    VehicleViewModel ConvertToVehicleViewModel(const json vehicle);
 };

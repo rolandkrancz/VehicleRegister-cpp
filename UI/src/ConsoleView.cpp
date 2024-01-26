@@ -7,7 +7,7 @@ void ConsoleView::DisplayMenu(void)
     std::cout << "3. Exit\n" << std::endl;
 }
 
-std::string ConsoleView::GetInput(std::string text)
+std::string ConsoleView::GetInput(const std::string text)
 {
     std::string input;
 
@@ -17,15 +17,11 @@ std::string ConsoleView::GetInput(std::string text)
     return input;
 }
 
-void ConsoleView::DisplayVehicleInfo(const std::string registrationNumber,
-                                     const std::string model,
-                                     const std::string type,
-                                     const std::string name,
-                                     const std::string address)
+void ConsoleView::DisplayVehicleInfo(const VehicleViewModel vehicle)
 {
-    std::cout << "Registration Number: " << registrationNumber << std::endl;
-    std::cout << "Model: " << model << std::endl;
-    std::cout << "Type: " << type << std::endl;
-    std::cout << "Owner's Name: " << name << std::endl;
-    std::cout << "Owner's Address: " << address << std::endl;
+    std::cout << "Registration Number: " << vehicle.registration_number << std::endl;
+    std::cout << "Model: " << vehicle.model << std::endl;
+    std::cout << "Type: " << vehicle.vehicle_type << std::endl;
+    std::cout << "Owner's Name: " << vehicle.owner_name << std::endl;
+    std::cout << "Owner's Address: " << vehicle.owner_address << std::endl;
 }

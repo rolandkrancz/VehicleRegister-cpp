@@ -29,6 +29,7 @@
     <ClInclude Include="src\UIController.h" />
     <ClInclude Include="src\VehicleUI.h" />
     <ClInclude Include="src\ConsoleView.h" />
+    <ClInclude Include="src\VehicleViewModel.h" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>16.0</VCProjectVersion>
