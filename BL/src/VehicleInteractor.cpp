@@ -1,7 +1,11 @@
 #include "VehicleInteractor.h"
 #include "Converter.h"
 
-VehicleInteractor::VehicleInteractor(IStorage* storage, IPresenterApi* presenter) : storage(storage), presenter(presenter) {} // kibontott constr.
+VehicleInteractor::VehicleInteractor(IStorage* storage, IPresenterApi* presenter)
+{
+    VehicleInteractor::storage = storage;
+    VehicleInteractor::presenter = presenter;
+}
 
 void VehicleInteractor::RegisterVehicle(const json request)
 {

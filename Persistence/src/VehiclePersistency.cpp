@@ -5,7 +5,10 @@
 
 #define DB_DIRECTORY "../Persistence/"
 
-VehiclePersistency::VehiclePersistency(const std::string fileName) : fileName(fileName) {}
+VehiclePersistency::VehiclePersistency(const std::string fileName)
+{
+    VehiclePersistency::fileName = fileName;
+}
 
 void VehiclePersistency::Save(const VehicleEntity vehicle) {
     std::ofstream file(DB_DIRECTORY + this->fileName, std::ios::app);

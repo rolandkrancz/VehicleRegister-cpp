@@ -1,6 +1,9 @@
 #include "UIController.h"
 
-UIController::UIController(IVehicleManager* vehicleApi) : vehicleApi(vehicleApi) {}
+UIController::UIController(IVehicleManager* vehicleApi)
+{
+    UIController::vehicleApi = vehicleApi;
+}
 
 void UIController::RegisterVehicle(const std::string registrationNumber,
                                    const std::string model,

@@ -1,7 +1,10 @@
 #include "VehicleUI.h"
 
-VehicleUI::VehicleUI(UIController* controller, ConsoleView* view) :
-    controller(controller), view(view) {}
+VehicleUI::VehicleUI(UIController* controller, ConsoleView* view)
+{
+    VehicleUI::controller = controller;
+    VehicleUI::view = view;
+}
 
 void VehicleUI::DisplayMainMenu() {
     while (true) {
