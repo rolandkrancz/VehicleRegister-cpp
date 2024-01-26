@@ -1,17 +1,15 @@
 #pragma once
 
-#include "IView.h"
-#include "ext/json.hpp"
+#include <iostream>
+#include <string>
 
-using json = nlohmann::json;
-
-class ConsoleView : public IView {
+class ConsoleView {
 public:
-	void DisplayMenu(void) override;
-	std::string GetInput(std::string text) override;
+	void DisplayMenu(void);
+	std::string GetInput(std::string text);
 	void DisplayVehicleInfo(const std::string registrationNumber,
 							const std::string model,
 							const std::string type,
 							const std::string name,
-							const std::string address) override;
+							const std::string address);
 };

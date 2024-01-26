@@ -1,5 +1,4 @@
 #include "ConsoleView.h"
-#include <iostream>
 
 void ConsoleView::DisplayMenu(void)
 {

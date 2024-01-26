@@ -41,8 +41,5 @@
     <ClInclude Include="src\UIPresenter.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="src\IView.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
   </ItemGroup>
 </Project>

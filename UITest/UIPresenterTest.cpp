@@ -3,7 +3,7 @@
 
 #include "UIPresenter.h"
 
-class MockView : public IView {
+class MockView : public ConsoleView {
     MOCK_METHOD0(DisplayMenu, void(void));
     MOCK_METHOD1(GetInput, std::string(std::string));
     MOCK_METHOD5(DisplayVehicleInfo, void(std::string, std::string, std::string, std::string, std::string));
@@ -21,7 +21,7 @@ TEST(UIPresenterTest, RegisterVehicleIsCalled_CreateRequestAndCallApi) {
     input["owner_name"] = "4";
     input["owner_address"] = "5";
 
- //   EXPECT_CALL(view, DisplayVehicleInfo("1","2","3","4","5"));
+  //  EXPECT_CALL(view, DisplayVehicleInfo("1","2","3","4","5"));
 
     presenter.DisplayVehicleInfo(input);
 }

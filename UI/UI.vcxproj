@@ -25,7 +25,6 @@
     <ClCompile Include="src\ConsoleView.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="src\IView.h" />
     <ClInclude Include="src\UIPresenter.h" />
     <ClInclude Include="src\UIController.h" />
     <ClInclude Include="src\VehicleUI.h" />

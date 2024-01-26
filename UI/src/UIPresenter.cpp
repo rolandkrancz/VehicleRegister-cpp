@@ -1,6 +1,6 @@
 #include "UIPresenter.h"
 
-UIPresenter::UIPresenter(IView* view) : view(view) {}
+UIPresenter::UIPresenter(ConsoleView* view) : view(view) {}
 
 void UIPresenter::DisplayVehicleInfo(const json vehicle)
 {
