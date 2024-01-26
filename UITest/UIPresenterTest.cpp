@@ -3,16 +3,15 @@
 
 #include "UIPresenter.h"
 
-class MockView : public ConsoleView {
-    MOCK_METHOD0(DisplayMenu, void(void));
-    MOCK_METHOD1(GetInput, std::string(std::string));
-    MOCK_METHOD5(DisplayVehicleInfo, void(std::string, std::string, std::string, std::string, std::string));
+class MockConsoleView : public ConsoleView {
+public:
+    MOCK_METHOD5(DisplayVehicleInfo, void(const std::string, const std::string, const std::string, const std::string, const std::string));
 };
 
 TEST(UIPresenterTest, RegisterVehicleIsCalled_CreateRequestAndCallApi) {
 
-    MockView view;
-    UIPresenter presenter(&view);
+    MockConsoleView mockView;
+    UIPresenter presenter(&mockView);
 
     json input;
     input["registration_number"] = "1";
@@ -21,7 +20,7 @@ TEST(UIPresenterTest, RegisterVehicleIsCalled_CreateRequestAndCallApi) {
     input["owner_name"] = "4";
     input["owner_address"] = "5";
 
-  //  EXPECT_CALL(view, DisplayVehicleInfo("1","2","3","4","5"));
-
+    EXPECT_CALL(mockView, DisplayVehicleInfo(::testing::_, ::testing::_, ::testing::_, ::testing::_, ::testing::_)).Times(1);
+    
     presenter.DisplayVehicleInfo(input);
 }
