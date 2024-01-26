@@ -18,11 +18,11 @@ VehicleViewModel UIPresenter::ConvertToVehicleViewModel(const json input)
 {
     VehicleViewModel output = {};
 
-    output.registration_number = input["registration_number"].get<std::string>();
+    output.registrationNumber = input["registrationNumber"].get<std::string>();
     output.model = input["model"].get<std::string>();
-    output.vehicle_type = input["vehicle_type"].get<std::string>();
-    output.owner_name = input["owner_name"].get<std::string>();
-    output.owner_address = input["owner_address"].get<std::string>();
+    output.vehicleType = input["vehicleType"].get<std::string>();
+    output.firstName = input["firstName"].get<std::string>();
+    output.address = input["address"].get<std::string>();
 
     return output;
 }

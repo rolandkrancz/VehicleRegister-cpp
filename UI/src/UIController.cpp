@@ -30,11 +30,11 @@ json UIController::CreateRegisterVehicleRequest(const std::string registrationNu
                                                 const std::string address)
 {
     json j;
-    j["registration_number"] = registrationNumber;
+    j["registrationNumber"] = registrationNumber;
     j["model"] = model;
-    j["vehicle_type"] = type;
-    j["owner_name"] = name;
-    j["owner_address"] = address;
+    j["vehicleType"] = type;
+    j["firstName"] = name;
+    j["address"] = address;
 
     return j;
 }
@@ -42,7 +42,7 @@ json UIController::CreateRegisterVehicleRequest(const std::string registrationNu
 json UIController::CreateGetVehicleInfoRequest(const std::string registrationNumber)
 {
     json request;
-    request["registration_number"] = registrationNumber;
+    request["registrationNumber"] = registrationNumber;
 
     return request;
 }

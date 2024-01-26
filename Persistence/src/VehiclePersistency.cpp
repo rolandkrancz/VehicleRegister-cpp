@@ -11,13 +11,14 @@ VehiclePersistency::VehiclePersistency(const std::string fileName)
 }
 
 void VehiclePersistency::Save(const VehicleEntity vehicle) {
-    std::ofstream file(DB_DIRECTORY + this->fileName, std::ios::app);
-    if (file.is_open()) {
-        file << vehicle.registration_number << ","
+    std::ofstream file(DB_DIRECTORY + fileName, std::ios::app);
+    if (file.is_open())
+    {
+        file << vehicle.registrationNumber << ","
              << vehicle.model << ","
-             << vehicle.vehicle_type << ","
-             << vehicle.owner_name << ","
-             << vehicle.owner_address << "\n";
+             << vehicle.vehicleType << ","
+             << vehicle.firstName << ","
+             << vehicle.address << "\n";
         file.close();
     }
 }
@@ -43,11 +44,11 @@ VehicleEntity VehiclePersistency::Load(const std::string registrationNumber) {
 
                 if (regNum == registrationNumber)
                 {
-                    vehicle.registration_number = regNum;
+                    vehicle.registrationNumber = regNum;
                     vehicle.model = model;
-                    vehicle.vehicle_type = type;
-                    vehicle.owner_name = name;
-                    vehicle.owner_address = address;
+                    vehicle.vehicleType = type;
+                    vehicle.firstName = name;
+                    vehicle.address = address;
                     break;
                 }
             }

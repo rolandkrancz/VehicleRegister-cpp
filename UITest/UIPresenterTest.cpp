@@ -14,11 +14,11 @@ TEST(UIPresenterTest, RegisterVehicleIsCalled_CreateRequestAndCallApi) {
     UIPresenter presenter(&mockView);
 
     json input;
-    input["registration_number"] = "1";
+    input["registrationNumber"] = "1";
     input["model"] = "2";
-    input["vehicle_type"] = "3";
-    input["owner_name"] = "4";
-    input["owner_address"] = "5";
+    input["vehicleType"] = "3";
+    input["firstName"] = "4";
+    input["address"] = "5";
 
     EXPECT_CALL(mockView, DisplayVehicleInfo(::testing::_)).Times(1);
     

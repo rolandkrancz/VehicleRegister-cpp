@@ -4,7 +4,7 @@
 TEST(ConverterTest, ValidInput_GetRegistrationNumber_ReturnRegistrationNumber)
 {
     json testInput = {
-        {"registration_number", "TEST001"},
+        {"registrationNumber", "TEST001"},
     };
 
     EXPECT_EQ("TEST001", Converter::GetRegistrationNumber(testInput));
@@ -22,20 +22,20 @@ TEST(ConverterTest, InvalidInput_GetRegistrationNumber_Throw)
 TEST(ConverterTest, ValidInput_JsonToVehicleEntity_ReturnVehicleEntity)
 {
     json testInput = {
-        {"registration_number", "TEST001"},
+        {"registrationNumber", "TEST001"},
         {"model", "SampleModel"},
-        {"vehicle_type", "SampleType"},
-        {"owner_name", "Béla"},
-        {"owner_address", "Budapest"},
+        {"vehicleType", "SampleType"},
+        {"firstName", "Béla"},
+        {"address", "Budapest"},
     };
 
     const VehicleEntity result = Converter::JsonToVehicleEntity(testInput);
 
-    EXPECT_EQ("TEST001", result.registration_number);
+    EXPECT_EQ("TEST001", result.registrationNumber);
     EXPECT_EQ("SampleModel", result.model);
-    EXPECT_EQ("SampleType", result.vehicle_type);
-    EXPECT_EQ("Béla", result.owner_name);
-    EXPECT_EQ("Budapest", result.owner_address);
+    EXPECT_EQ("SampleType", result.vehicleType);
+    EXPECT_EQ("Béla", result.firstName);
+    EXPECT_EQ("Budapest", result.address);
 }
 
 TEST(ConverterTest, InvalidInput_JsonToVehicleEntity_Throw)
@@ -49,15 +49,20 @@ TEST(ConverterTest, InvalidInput_JsonToVehicleEntity_Throw)
 
 TEST(ConverterTest, ValidInput_VehicleEntityToJson_ReturnJson)
 {
-    VehicleEntity testInput{"TEST001", "SampleModel", "SampleType", "Béla", "Budapest"};
+    VehicleEntity testInput{};
+    testInput.registrationNumber = "TEST001";
+    testInput.model= "SampleModel";
+    testInput.vehicleType = "SampleType";
+    testInput.firstName= "Béla";
+    testInput.address = "Budapest";
 
     const json result = Converter::VehicleEntityToJson(testInput);
 
-    EXPECT_EQ("TEST001", result["registration_number"]);
+    EXPECT_EQ("TEST001", result["registrationNumber"]);
     EXPECT_EQ("SampleModel", result["model"]);
-    EXPECT_EQ("SampleType", result["vehicle_type"]);
-    EXPECT_EQ("Béla", result["owner_name"]);
-    EXPECT_EQ("Budapest", result["owner_address"]);
+    EXPECT_EQ("SampleType", result["vehicleType"]);
+    EXPECT_EQ("Béla", result["firstName"]);
+    EXPECT_EQ("Budapest", result["address"]);
 }
 
 TEST(ConverterTest, InvalidInput_VehicleEntityToJson_ReturnEmptyJson)
@@ -66,9 +71,9 @@ TEST(ConverterTest, InvalidInput_VehicleEntityToJson_ReturnEmptyJson)
    
     const json result = Converter::VehicleEntityToJson(testInput);
 
-    EXPECT_EQ("", result["registration_number"]);
+    EXPECT_EQ("", result["registrationNumber"]);
     EXPECT_EQ("", result["model"]);
-    EXPECT_EQ("", result["vehicle_type"]);
-    EXPECT_EQ("", result["owner_name"]);
-    EXPECT_EQ("", result["owner_address"]);
+    EXPECT_EQ("", result["vehicleType"]);
+    EXPECT_EQ("", result["firstName"]);
+    EXPECT_EQ("", result["address"]);
 }

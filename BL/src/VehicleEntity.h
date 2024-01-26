@@ -1,11 +1,26 @@
 #pragma once
 
 #include <string>
+using namespace std;
 
 typedef struct VehicleEntity {
-    std::string registration_number;
-    std::string model;
-    std::string vehicle_type;
-    std::string owner_name;
-    std::string owner_address;
+    string vehicleRegister;
+    string vehicle;
+    string vehicleType;
+    string registrationNumber;
+    string dateOfFirstRegistration;
+    string make;
+    string model;
+    string numberOfSeats;
+    string engineNumber;
+    string colour;
+    string massInService;
+    string maxMass;
+    string brakedTraier;
+    string unbrakedTrailer;
+    string motorEmissionType;
+    string firstName;
+    string lastName;
+    string address;
+
 } VehicleEntity;

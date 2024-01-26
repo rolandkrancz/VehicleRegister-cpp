@@ -15,11 +15,11 @@ class MockPresenter : public IPresenterApi {
 };
 
 static const json S_testInput = {
-        {"registration_number", "TEST001"},
+        {"registrationNumber", "TEST001"},
         {"model", "SampleModel"},
-        {"vehicle_type", "SampleType"},
-        {"owner_name", "Béla"},
-        {"owner_address", "Budapest"},
+        {"vehicleType", "SampleType"},
+        {"firstName", "Béla"},
+        {"address", "Budapest"},
 };
 
 static const VehicleEntity S_testEntity = Converter::JsonToVehicleEntity(S_testInput);

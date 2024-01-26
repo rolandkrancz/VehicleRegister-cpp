@@ -15,11 +15,11 @@ TEST(UIControllerTest, RegisterVehicleIsCalled_CreateRequestAndCallApi) {
     UIController controller(&api);
 
     json expectedRequest;
-    expectedRequest["registration_number"] = "1";
+    expectedRequest["registrationNumber"] = "1";
     expectedRequest["model"] = "2";
-    expectedRequest["vehicle_type"] = "3";
-    expectedRequest["owner_name"] = "4";
-    expectedRequest["owner_address"] = "5";
+    expectedRequest["vehicleType"] = "3";
+    expectedRequest["firstName"] = "4";
+    expectedRequest["address"] = "5";
 
     EXPECT_CALL(api, RegisterVehicle(expectedRequest));
 
@@ -32,7 +32,7 @@ TEST(UIControllerTest, GetVehicleInfoIsCalled_CreateRequestAndCallApi) {
     UIController controller(&api);
 
     json expectedRequest;
-    expectedRequest["registration_number"] = "ABC-123";
+    expectedRequest["registrationNumber"] = "ABC-123";
 
     EXPECT_CALL(api, GetVehicleInfo(expectedRequest));
 

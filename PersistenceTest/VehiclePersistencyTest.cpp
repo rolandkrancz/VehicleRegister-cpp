@@ -13,11 +13,11 @@ TEST(VehiclePersistencyTest, SaveAndLoadFromFile)
 
     VehicleEntity written = persistency.Load("TEST001");
 
-    EXPECT_EQ(testEntity.registration_number, written.registration_number);
+    EXPECT_EQ(testEntity.registrationNumber, written.registrationNumber);
     EXPECT_EQ(testEntity.model, written.model);
-    EXPECT_EQ(testEntity.vehicle_type, written.vehicle_type);
-    EXPECT_EQ(testEntity.owner_name, written.owner_name);
-    EXPECT_EQ(testEntity.owner_address, written.owner_address);
+    EXPECT_EQ(testEntity.vehicleType, written.vehicleType);
+    EXPECT_EQ(testEntity.firstName, written.firstName);
+    EXPECT_EQ(testEntity.address, written.address);
 
     std::remove(TEST_DB_FILE_NAME);
 }

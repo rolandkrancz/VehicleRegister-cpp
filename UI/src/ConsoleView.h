@@ -7,6 +7,6 @@
 class ConsoleView {
 public:
 	void DisplayMenu(void);
-	std::string GetInput(const std::string text);
+	std::string GetInput(const std::string prompt);
 	void DisplayVehicleInfo(const VehicleViewModel vehicle);
 };
